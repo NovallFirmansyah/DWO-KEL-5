@@ -1,11 +1,11 @@
 <?php
 require('koneksi.php');
 
-$sql = "SELECT s.teritoryname AS nama_toko, 
+$sql = "SELECT s.territoryname AS nama_toko, 
                SUM(fp.SalesAmount) AS total_pendapatan
         FROM dimsalesterritory s
-        JOIN factsales fp ON s.teritoryid = fp.territoryid
-        GROUP BY s.teritoryname
+        JOIN factsales fp ON s.territoryid = fp.territoryid
+        GROUP BY s.territoryname
         ORDER BY total_pendapatan DESC";
 
 $result = mysqli_query($conn, $sql);

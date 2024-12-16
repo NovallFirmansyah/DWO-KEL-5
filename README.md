@@ -12,7 +12,7 @@ Adrian Noval Firmansyah (22082010214)<br/>
 Langkah-langkah yang dibutuhkan untuk menjalankan app dengan baik :
 1. Install database server: MySql.
 2. Install software mysql management: phpMyAdmin dari Xampp (ATAU YG LAIN).
-3. Extract FP_DWO_KELOMPOK_5.zip pada folder htdocs XAMPP (xampp/htdocs).
+3. Extract DWO_KEL_5.zip pada folder htdocs XAMPP (xampp/htdocs).
 4. Jalankan Xampp control panel.
 5. Start apache dan mysql server.
 6. Buka phpMyAdmin (localhost/phpmyadmin).

@@ -52,7 +52,7 @@ $data7 = json_decode($data7, TRUE);
                 <!-- Begin Page Content -->
                 <div id="linechart" class="grafik"></div>
                 <p class="highcharts-description">
-                    Berikut merupakan grafik untuk menampilkan data penjualan setiap kategori.
+                    Berikut merupakan grafik untuk menampilkan data penjualan bulanan pada setiap kategori.
                 </p>
                 <!-- /.container-fluid -->
             </div>
@@ -62,7 +62,7 @@ $data7 = json_decode($data7, TRUE);
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Dashboard DWO Kelompok 3</span>
+                        <span>Copyright &copy; Dashboard DWO Kelompok 5</span>
                     </div>
                 </div>
             </footer>
@@ -87,7 +87,7 @@ $data7 = json_decode($data7, TRUE);
                 type: 'line'
             },
             title: {
-                text: 'Data Penjualan Setiap Kategori Produk'
+                text: 'Data Penjualan Bulanan Setiap Kategori Produk'
             },
             subtitle: {
                 text: 'Source: Database advuas.sql'

@@ -81,8 +81,9 @@ $data7 = json_decode($data7, TRUE);
 
     <!-- Script untuk membuat line chart -->
     <script type="text/javascript">
-        // Membuat line chart
-        Highcharts.chart('linechart', {
+    document.addEventListener('DOMContentLoaded', function () {
+        // Membuat chart
+        const chart = Highcharts.chart('linechart', {
             chart: {
                 type: 'line'
             },
@@ -125,12 +126,36 @@ $data7 = json_decode($data7, TRUE);
 
                 foreach ($categories as $kategori => $penjualanList): ?>{
                         name: '<?= $kategori ?>',
-                        data: [<?= implode(',', $penjualanList) ?>]
+                        data: [<?= implode(',', $penjualanList) ?>],
+                        visible: false // Menonaktifkan data secara default
                     },
                 <?php endforeach; ?>
             ]
         });
-    </script>
+
+        // Fungsi untuk toggle visibilitas semua seri data
+        const toggleData = () => {
+            const allVisible = chart.series.every(series => series.visible);
+            chart.series.forEach(series => series.setVisible(!allVisible, false));
+            chart.redraw();
+        };
+
+        // Menambahkan tombol untuk memunculkan/menyembunyikan semua data
+        const button = document.createElement('button');
+        button.innerHTML = 'Tampilkan/Sembunyikan Semua Data';
+        button.classList.add('btn', 'btn-sm', 'btn-primary'); // Ukuran lebih kecil dengan `btn-sm`
+        button.style.margin = '10px';
+        button.addEventListener('click', toggleData);
+
+        // Menambahkan tombol ke bawah kontainer chart
+        const chartContainer = document.querySelector('#linechart');
+        const buttonContainer = document.createElement('div');
+        buttonContainer.style.textAlign = 'center'; // Posisikan tombol di tengah bawah
+        buttonContainer.appendChild(button);
+        chartContainer.insertAdjacentElement('afterend', buttonContainer);
+    });
+</script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>

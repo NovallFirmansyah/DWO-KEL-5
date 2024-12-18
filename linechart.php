@@ -31,13 +31,20 @@
 
 <body id="page-top">
 
-<?php 
-//data barchart
+<?php
+// data3.php assumed to provide the $data3 array
 include 'data3.php';
 
+// Decode JSON and sort by 'jumlah' descending
 $data3 = json_decode($data3, TRUE);
+usort($data3, function ($a, $b) {
+    return $b['jumlah'] - $a['jumlah']; // Sorting in descending order
+});
 
+// Get top 10 items
+$data3 = array_slice($data3, 0, 10);
 ?>
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
